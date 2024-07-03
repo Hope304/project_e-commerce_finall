@@ -4,8 +4,7 @@ import '../css/app.css';
 import { createRoot } from 'react-dom/client';
 import { createInertiaApp } from '@inertiajs/react';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
-import Header from './Layouts/Header';
-import Footer from './Layouts/Footer';
+import HomeLayout from './Layouts/HomeLayout';
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -17,9 +16,9 @@ createInertiaApp({
 
         root.render(
             <>
-                <Header/>
-                <App {...props} />
-                <Footer/>
+                <HomeLayout>
+                    <App {...props} />
+                </HomeLayout>
             </>
         );
     },

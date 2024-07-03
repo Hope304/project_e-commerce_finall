@@ -1,17 +1,17 @@
-import { Head } from "@inertiajs/react";
 
+import Hero from '@/Layouts/Hero';
+import { Head } from '@inertiajs/react';
+import FlashSale from '@/Layouts/FlashSale';
+import Categories from '@/Layouts/Categories';
 
-export default function Home() {
+export default function Home({auth,user,children}) {
+  
   return (
     <>
-      <Head title="Home"/>
-      <div className="bg-gray-100 ">
-        <div className="relative flex flex-col items-center justify-center" style={{ minHeight: 'calc(100vh - 80px)' }}>
-          <div className="relative w-full max-w-2xl px-6 lg:max-w-7xl" >
-            Home
-          </div>
-        </div>
-      </div>
+        <Head title="Home" />
+        <Hero/>
+        <FlashSale/>
+        <Categories/>
     </>
   )
 }

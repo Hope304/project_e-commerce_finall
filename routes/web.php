@@ -15,8 +15,23 @@ use Inertia\Inertia;
 // });
 
 Route::get('/', function () {
-    return Inertia::render('Home');
+    return Inertia::render('Home',[
+        'canLogin' => Route::has('login'),
+        'canRegister' => Route::has('register'),
+        'laravelVersion' => Application::VERSION,
+        'phpVersion' => PHP_VERSION,
+    ]);
 });
+Route::get('/home', function () {
+    return Inertia::render('Home');
+})->name('home');
+
+Route::get('/product/{id}', function ($id) {
+    return Inertia::render('Product', [
+        'ProductId' => $id,
+    ]);
+})->name('product');
+
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
