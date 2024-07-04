@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
@@ -26,12 +27,16 @@ Route::get('/home', function () {
     return Inertia::render('Home');
 })->name('home');
 
-Route::get('/product/{id}', function ($id) {
-    return Inertia::render('Product', [
-        'ProductId' => $id,
-    ]);
-})->name('product');
+// Route::get('/product/{id}', function ($id) {
+//     return Inertia::render('Product', [
+//         'ProductId' => $id,
+//     ]);
+// })->name('product');
 
+// Route::post('/product',[ProductController::class,'store'])->name('product.store');
+Route::get('/product', function () {
+    return Inertia::render('Product');
+})->name('product');
 
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');

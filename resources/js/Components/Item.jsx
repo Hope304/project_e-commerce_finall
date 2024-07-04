@@ -12,7 +12,7 @@ export default function (props) {
             <div className="bg-white p-4 rounded-md"> 
                 <div className="aspect-h-1 aspect-w-1 w-full overflow-hidden rounded-md bg-gray-200 lg:aspect-none group-hover:opacity-75 lg:h-80">
                     <img 
-                        src={product.imageSrc} 
+                        src={product.image} 
                         alt={product.imageAlt} 
                         className='h-full w-full object-center'
                     />
@@ -20,7 +20,7 @@ export default function (props) {
                 <div className="mt-4 flex justify-between ">
                     <div>
                     <h3 className="text-sm text-gray-700">
-                        <Link href={route('product',{id:product.id})}>
+                        <Link>
                         <span aria-hidden="true" className="absolute inset-0" />
                         {product.name}
                         </Link>

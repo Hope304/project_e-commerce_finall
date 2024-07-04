@@ -7,10 +7,8 @@ import ResponsiveNavLink from '@/Components/ResponsiveNavLink';
 import { Link } from '@inertiajs/react';
 
 
-export default function HomeLayout({auth,user,children,header}) {
+export default function HomeLayout({user,children,header}) {
   const [showingNavigationDropdown, setShowingNavigationDropdown] = useState(false);
-  console.log(auth)
-  console.log(user)
   return (
     <>
       <div className="min-h-screen bg-gray-100 dark:bg-gray-900">
