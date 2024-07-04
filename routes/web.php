@@ -26,6 +26,9 @@ Route::get('/', function () {
 Route::get('/home', function () {
     return Inertia::render('Home');
 })->name('home');
+Route::get('/cart', function () {
+    return Inertia::render('Cart');
+})->name('cart');
 
 // Route::get('/product/{id}', function ($id) {
 //     return Inertia::render('Product', [
@@ -33,14 +36,11 @@ Route::get('/home', function () {
 //     ]);
 // })->name('product');
 
-// Route::post('/product',[ProductController::class,'store'])->name('product.store');
-Route::get('/product', function () {
-    return Inertia::render('Product');
-})->name('product');
 
-Route::get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+
+// Route::get('/dashboard', function () {
+//     return Inertia::render('Dashboard');
+// })->middleware(['auth', 'verified'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

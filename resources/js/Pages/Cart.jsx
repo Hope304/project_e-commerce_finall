@@ -4,15 +4,13 @@ import { Head } from '@inertiajs/react';
 import FlashSale from '@/Layouts/FlashSale';
 import Categories from '@/Layouts/Categories';
 import HomeLayout from '@/Layouts/HomeLayout';
-export default function Home({auth}) {
+import CartLayout from '@/Layouts/CartLayout';
+export default function Cart({auth}) {
   return (
     <>
       <HomeLayout user={auth.user} >
-        <Head title="Home" />
-        
-        {/* <Hero/> */}
-        <FlashSale/>
-        {/* <Categories/> */}
+        <Head title="Cart" />
+        <CartLayout/>
       </HomeLayout>
     </>
   )
