@@ -27,16 +27,6 @@ export default function HomeLayout({user,children,header}) {
                                     Home
                                 </NavLink>
                             </div>
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink href={route('home')} active={route().current('home')}>
-                                    Caretory
-                                </NavLink>
-                            </div>
-                            <div className="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                                <NavLink href={route('home')} active={route().current('home')}>
-                                    Home
-                                </NavLink>
-                            </div>
                         </div>
                         <div className="inline-flex rounded-md">
                             <span className="inline-flex rounded-md">
@@ -90,14 +80,24 @@ export default function HomeLayout({user,children,header}) {
                                 </div>
                             </div>)}
                             {!user && (
-                            <span className="inline-flex rounded-md">
-                                <Link
-                                    href={route('login')}
-                                    className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
-                                    >
-                                    Log in
-                                </Link>
-                            </span>
+                                <div className='inline-flex '>
+                                    <span className="inline-flex rounded-md">
+                                        <Link
+                                            href={route('login')}
+                                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
+                                            >
+                                            Log in
+                                        </Link>
+                                    </span>
+                                    <span className="inline-flex rounded-md">
+                                        <Link
+                                            href={route('register')}
+                                            className="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 dark:text-gray-400 bg-white dark:bg-gray-800 hover:text-gray-700 dark:hover:text-gray-300 focus:outline-none transition ease-in-out duration-150"
+                                            >
+                                            Register
+                                        </Link>
+                                    </span>
+                                </div>
                             )}
                         </div>
                         

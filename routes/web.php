@@ -29,6 +29,9 @@ Route::get('/home', function () {
 Route::get('/cart', function () {
     return Inertia::render('Cart');
 })->name('cart');
+Route::get('/admin', function () {
+    return Inertia::render('Admin');
+})->name('admin');
 
 // Route::get('/product/{id}', function ($id) {
 //     return Inertia::render('Product', [
@@ -38,9 +41,12 @@ Route::get('/cart', function () {
 
 
 
-// Route::get('/dashboard', function () {
-//     return Inertia::render('Dashboard');
-// })->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/dashboard', function () {
+    return Inertia::render('Dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+Route::get('/adminproduct', function () {
+    return Inertia::render('AdminProduct');
+})->name('adminproduct');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

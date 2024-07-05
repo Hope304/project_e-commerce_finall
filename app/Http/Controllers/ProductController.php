@@ -30,15 +30,15 @@ class ProductController extends Controller
             'model' => 'required',
             'price' => 'required',
             'quantity' => 'required',
-            // 'image' => 'required',
+            'image' => 'required',
         ]);
         $product = new Product();
         $product->name = $request->input('name');
         $product->model = $request->input('model');
         $product->price = $request->input('price');
         $product->quantity = $request->input('quantity');
+        $product->image = $request->input('image');
         $product->save();
-        // return Redirect::route('product.store')->with('success','product created successfully');
         return response()->json([
             'status'=>200,
             'message'=> 'ok'
@@ -73,12 +73,14 @@ class ProductController extends Controller
             'name'=> 'required',
             'model'=> 'required',
             'price'=> 'required',
-            'quantity'=> 'required'
+            'quantity'=> 'required',
+            'image'=> 'required',
         ]);
         $product->name = $request->input('name');
         $product->model = $request->input('model');
         $product->price = $request->input('price');
         $product->quantity = $request->input('quantity');
+        $product->image = $request->input('image');
         $product->save();
         return response()->json([
             'status'=> 200,

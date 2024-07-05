@@ -1,7 +1,10 @@
 import React,{useContext} from 'react';
 import { Link } from '@inertiajs/react';
 import { UserContext } from '@/context/UserContext';
-export default function ProductCard({ product,onProductClick}) {
+
+
+
+export default function AdminProduct({ product,onProductClick}) {
 
     const { user } = useContext(UserContext);
     

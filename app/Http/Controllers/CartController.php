@@ -28,7 +28,12 @@ class CartController extends Controller
         // Lấy giá của sản phẩm từ bảng products
         $product = Product::findOrFail($productId);
         $price = $product->price;
-
+        if ($product->quantity <= 0) {
+            return response()->json([
+                'status' => 400,
+                'message' => 'Sản phẩm đã hết hàng.'
+            ]);
+        }
         // Nếu giỏ hàng không tồn tại, tạo mới
         if (!$cart) {
             $cart = new Cart();
@@ -49,7 +54,7 @@ class CartController extends Controller
         return response()->json([
             'status'=>200,
             'data'=>$cart,
-            'product' =>$product
+            'product'=>$product
         ]);
 
     }
@@ -62,7 +67,7 @@ class CartController extends Controller
         $products = DB::table('carts')
                 ->where('user_id',$user_id)
                 ->join('products','carts.product_id','=','products.id')
-                ->select('products.id','products.name','products.image','carts.quantity','carts.total_price')
+                ->select('carts.product_id','products.name','products.price','products.model','products.image','carts.quantity','carts.total_price','carts.id')
                 ->get();
         return response()->json([
             'status' => 200,
