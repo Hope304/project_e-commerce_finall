@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import { Link } from '@inertiajs/react';
 import axios from 'axios';
+import Admin from './Admin';
 
 export default function Dashboard() {
   const [products, setProducts] = useState([]);
@@ -20,15 +22,7 @@ export default function Dashboard() {
   };
 
   return (
-    <div className="flex h-screen bg-gray-100 dark:bg-gray-900">
-      {/* Sidebar */}
-      {/* <div className="w-64 bg-white border-r border-gray-200 dark:border-gray-700">
-        <div className="p-4">
-          <h1 className="text-xl font-bold text-gray-800 dark:text-gray-200">Sidebar</h1>
-          <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">Các mục menu sẽ ở đây</p>
-        </div>
-      </div> */}
-
+    <Admin>
       <div className="flex-1 p-5 overflow-y-auto pr-6">
         <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-200 mb-4">Danh sách sản phẩm</h1>
         <div className="grid grid-cols-1 gap-4 lg:grid-cols-2">
@@ -47,7 +41,9 @@ export default function Dashboard() {
                     <p className="text-xl text-gray-600 font-bold">{product.quantity}</p>
                 </div>
                 <div>
-                    <p className="text-xl text-green-500 font-bold">Sửa</p>
+                  <Link href={`/adminproduct/${product.id}`}>
+                    <span className="text-xl text-green-500 font-bold">Sửa</span>
+                  </Link>
                     <p className="text-xl text-red-500 font-bold">Xóa</p>
                 </div>
               </div>
@@ -55,6 +51,6 @@ export default function Dashboard() {
           ))}
         </div>
       </div>
-    </div>
+    </Admin>
   );
 }

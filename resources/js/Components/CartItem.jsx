@@ -3,8 +3,6 @@ import { UserContext } from '@/context/UserContext';
 export default function CartItem({cartItem,onQuantityChange}) {
   const [quantity, setQuantity] = useState(cartItem.quantity);
   const { user } = useContext(UserContext);
-  const [sold,setSold] = useState(false);
-  console.log(cartItem);
   const fetchDecreaseQuantity = () => {
     axios.put(`http://localhost:8000/api/cart/${cartItem.id}`)
       .then(response => {
@@ -49,6 +47,8 @@ export default function CartItem({cartItem,onQuantityChange}) {
     setQuantity(quantity - 1);
     onQuantityChange(cartItem.id,newQuantity);
   };
+  const price = parseFloat(cartItem.price);
+  const totalPrice = isNaN(price) ? 0 : price * quantity;
 
   return (
     <>
@@ -119,7 +119,7 @@ export default function CartItem({cartItem,onQuantityChange}) {
           </button>
         </div>
         <h6 className="text-indigo-600 font-manrope font-bold text-2xl leading-9 w-full max-w-[176px] text-center">
-          ${quantity*cartItem.price} 
+          ${totalPrice.toFixed(2)} 
         </h6>
       </div>
       </div>)}

@@ -58,7 +58,7 @@ export default function CartLayout() {
         <div className="bg-gray-50 rounded-xl p-6 w-full mb-8 max-lg:max-w-xl max-lg:mx-auto">
           <div className="flex items-center justify-between w-full py-6">
             <p className="font-manrope font-medium text-2xl leading-9 text-gray-900">Total</p>
-            <h6 className="font-manrope font-medium text-2xl leading-9 text-indigo-500">${calculateTotalPrice()}</h6>
+            <h6 className="font-manrope font-medium text-2xl leading-9 text-indigo-500">${calculateTotalPrice().toFixed(2)}</h6>
           </div>
         </div>
         <div className="flex items-center flex-col sm:flex-row justify-center gap-3 mt-8">
